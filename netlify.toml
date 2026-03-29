@@ -1,0 +1,11 @@
+# netlify.toml
+# Place ce fichier Ã  la racine de ton projet
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
