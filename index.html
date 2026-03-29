@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#08080E" />
+  <meta name="description" content="Génère des scripts vidéo en français ivoirien avec l'IA" />
+
+  <!-- PWA : installable sur Android -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>AI Video Generator</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #08080E; color: white; font-family: 'Courier New', monospace; }
+    #root { min-height: 100vh; }
+    #loading {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 100vh; gap: 16px;
+      color: rgba(255,255,255,0.4); font-size: 13px; letter-spacing: 0.2em;
+    }
+    .spinner {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid rgba(124,111,255,0.2);
+      border-top-color: #7C6FFF;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="loading">
+      <div class="spinner"></div>
+      CHARGEMENT…
+    </div>
+  </div>
+
+  <!-- React + Babel (CDN — pas besoin de npm) -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+  <!-- Ton app (Babel transpile le JSX directement dans le navigateur) -->
+  <script type="text/babel" src="/VideoGenApp.jsx" data-presets="react"></script>
+
+  <script>
+    // Lance l'app React une fois chargée
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+      }, 100);
+    });
+  </script>
+</body>
+</html>
