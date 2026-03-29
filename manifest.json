@@ -1,0 +1,23 @@
+{
+  "name": "AI Video Generator",
+  "short_name": "AI Video",
+  "description": "Génère des scripts vidéo en français ivoirien avec Gemini IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080E",
+  "theme_color": "#7C6FFF",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192/7C6FFF/ffffff?text=AI",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512/7C6FFF/ffffff?text=AI",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
