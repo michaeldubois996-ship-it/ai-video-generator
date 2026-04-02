@@ -42,7 +42,6 @@ exports.handler = async function (event) {
           topK: 40,
           topP: 0.95,
           maxOutputTokens: 1500,
-          responseMimeType: "application/json",
         },
       }),
     });
