@@ -30,7 +30,7 @@ exports.handler = async function (event) {
     if (!apiKey)  return { statusCode: 400, headers, body: JSON.stringify({ error: "Clé API manquante" }) };
 
     // ── Appel vers Gemini (côté serveur = pas de CORS) ─────────────────────
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     const geminiRes = await fetch(geminiUrl, {
       method: "POST",
